@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import * as moment from 'moment';
+import PropTypes from 'prop-types';
 
 export class LoyaltyCard extends React.Component {
   render() {
@@ -27,3 +28,8 @@ export class LoyaltyCard extends React.Component {
     );
   }
 }
+
+LoyaltyCard.propTypes = {
+  action: PropTypes.func.isRequired,
+  loyaltyCard: PropTypes.object.isRequired,
+};

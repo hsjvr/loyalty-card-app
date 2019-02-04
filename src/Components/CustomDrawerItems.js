@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { List, Divider, ListItem, ListItemIcon, ListItemText, withStyles } from '@material-ui/core';
 import { CreditCard, FormatListNumbered, Bookmark, Lock } from '@material-ui/icons';
 import { withRouter } from 'react-router-dom';
+import { webAuth } from './../Services';
 
 const styles = {
   list: {
@@ -22,6 +23,14 @@ class CustomDrawerItems extends React.Component {
     this.props.history.push(link);
 
     this.props.onClose();
+  };
+
+  onClickSignOut = () => {
+    localStorage.removeItem('auth0');
+
+    webAuth.logout({
+      returnTo: `${window.location.origin}`,
+    });
   };
 
   render() {
@@ -49,7 +58,7 @@ class CustomDrawerItems extends React.Component {
         </List>
         <Divider />
         <List>
-          <ListItem button component="a" onClick={() => this.onClickListItem('/sign-in', false)}>
+          <ListItem button component="a" onClick={this.onClickSignOut}>
             <ListItemIcon>
               <Lock />
             </ListItemIcon>
@@ -63,6 +72,8 @@ class CustomDrawerItems extends React.Component {
 
 CustomDrawerItems.propTypes = {
   classes: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 const CustomDrawerItemsWithStyles = withStyles(styles)(CustomDrawerItems);

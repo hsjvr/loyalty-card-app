@@ -3,7 +3,7 @@ import { LoyaltyCard } from '../Components';
 import { Add } from '@material-ui/icons';
 import { List, ListItem, ListSubheader, Fab, LinearProgress, Snackbar, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { getLoyaltyCards, deleteLoyaltyCard, getUser } from './../Services';
+import { getLoyaltyCards, deleteLoyaltyCard } from './../Services';
 
 export class LoyaltyCards extends React.Component {
   state = {
@@ -12,8 +12,6 @@ export class LoyaltyCards extends React.Component {
   };
 
   async componentDidMount() {
-    await getUser();
-
     this.setState({
       ...this.state,
       loyaltyCards: await getLoyaltyCards(),

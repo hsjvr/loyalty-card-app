@@ -1,8 +1,19 @@
 import React from 'react';
 import { Paper, Button } from '@material-ui/core';
-import { webAuth } from './../Services';
+import { webAuth, getUser } from './../Services';
+import { withRouter } from 'react-router-dom';
 
 export class SignIn extends React.Component {
+  async componentDidMount() {
+    const user = await getUser();
+
+    if (user) {
+      this.props.history.push('/');
+
+      return;
+    }
+  }
+
   onClickEnter = () => {
     webAuth.authorize();
   };
@@ -20,3 +31,5 @@ export class SignIn extends React.Component {
     );
   }
 }
+
+export const SignInWithRouter = withRouter(SignIn);
