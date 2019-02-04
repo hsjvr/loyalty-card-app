@@ -4,7 +4,7 @@ import { webAuth, getUser } from './../Services';
 import { withRouter } from 'react-router-dom';
 
 export class SignIn extends React.Component {
-  async componentDidMount() {
+  componentDidMount = async () => {
     const user = await getUser();
 
     if (user) {

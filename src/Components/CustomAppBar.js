@@ -24,7 +24,7 @@ class CustomMenuAppBar extends React.Component {
     },
   };
 
-  onClickMenu = () => {
+  onClickMenu = async () => {
     this.setState({
       drawer: {
         ...this.state.drawer,
@@ -33,7 +33,7 @@ class CustomMenuAppBar extends React.Component {
     });
   };
 
-  onCloseDrawer = () => {
+  onCloseDrawer = async () => {
     this.setState({
       drawer: {
         ...this.state.drawer,

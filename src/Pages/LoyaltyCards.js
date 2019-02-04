@@ -11,21 +11,21 @@ export class LoyaltyCards extends React.Component {
     message: null,
   };
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     this.setState({
       ...this.state,
       loyaltyCards: await getLoyaltyCards(),
     });
   }
 
-  onCloseSnackbar = () => {
+  onCloseSnackbar = async () => {
     this.setState({
       ...this.state,
       message: null,
     });
   };
 
-  onClickLoyaltyCard = (loyaltyCard) => {
+  onClickLoyaltyCard = async (loyaltyCard) => {
     this.setState({
       ...this.state,
       message: {

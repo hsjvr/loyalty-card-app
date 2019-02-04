@@ -11,7 +11,7 @@ export class AddLoyaltyCard extends React.Component {
     message: null,
   };
 
-  onChangeLoyaltyCardCode = (event) => {
+  onChangeLoyaltyCardCode = async (event) => {
     this.setState({
       ...this.state,
       loyaltyCardCode: event.target.value,
@@ -65,7 +65,7 @@ export class AddLoyaltyCard extends React.Component {
     });
   };
 
-  onCloseSnackbar = () => {
+  onCloseSnackbar = async () => {
     this.setState({
       ...this.state,
       message: null,

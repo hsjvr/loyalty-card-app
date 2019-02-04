@@ -8,7 +8,7 @@ export class Callback extends React.Component {
     users: null,
   };
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     webAuth.parseHash(async (error, result) => {
       if (error) {
         return;
@@ -20,7 +20,7 @@ export class Callback extends React.Component {
 
       this.props.history.push('/');
     });
-  }
+  };
 
   render() {
     return (

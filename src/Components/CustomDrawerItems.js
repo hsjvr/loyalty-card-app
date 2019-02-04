@@ -12,9 +12,10 @@ const styles = {
 };
 
 class CustomDrawerItems extends React.Component {
-  onClickListItem = (link, windowNavigation) => {
+  onClickListItem = async (link, windowNavigation) => {
     if (windowNavigation) {
       window.location.href = link;
+
       this.props.onClose();
 
       return;
@@ -25,7 +26,7 @@ class CustomDrawerItems extends React.Component {
     this.props.onClose();
   };
 
-  onClickSignOut = () => {
+  onClickSignOut = async () => {
     localStorage.removeItem('auth0');
 
     webAuth.logout({

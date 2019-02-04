@@ -17,7 +17,7 @@ export class Leaderboard extends React.Component {
     users: null,
   };
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     this.setState({
       ...this.state,
       users: await getUsers(),
